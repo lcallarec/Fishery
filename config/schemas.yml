@@ -1,0 +1,5 @@
+schemas:
+    test1:
+        users:
+            columns: [id, name, slug]
+            identifiers: [id*]

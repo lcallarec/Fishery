@@ -1,0 +1,9 @@
+entities:
+    test1:
+        users: |
+               | id        | name | slug   |
+               | 1         | a    | aa     |
+               | 2         | b    | bb     |
+               | 3         | c    | cc     |
+               | 4         | d    | dd     |
+

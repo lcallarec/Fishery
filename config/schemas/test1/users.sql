@@ -1,0 +1,1 @@
+CREATE TABLE %schema%.users (id int, name varchar(255), slug varchar(255))
