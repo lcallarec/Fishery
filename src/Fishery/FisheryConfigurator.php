@@ -25,15 +25,17 @@ class FisheryConfigurator
 {
     /** @var FisheryContainerInterface */
     private $app;
-    /** @var string */
-    private $configPath;
+
     /** @var FileLocator */
     private $locator;
-    /** @var Finder */
-    private $finder;
+
     /** @var array */
     private $parameters;
 
+    /**
+     * @param FisheryContainerInterface $app
+     * @param string                    $rootPath
+     */
     public function __construct(FisheryContainerInterface $app, $rootPath)
     {
         $this->app = $app;
@@ -48,10 +50,11 @@ class FisheryConfigurator
 
     }
 
+    /**
+     *
+     */
     public function configure()
     {
-
-
 
         $configPath = $this->parameters['parameters']['config.dir'];
 
@@ -136,12 +139,13 @@ class FisheryConfigurator
         return $merged;
     }
 
+    /**
+     *
+     */
     protected function registerDefaultProviders()
     {
         $this->app->register(new StorageProvider());
         $this->app->register(new SchemaManagerProvider());
         $this->app->register(new EntityManagerProvider());
     }
-
-
 }

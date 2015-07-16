@@ -3,7 +3,6 @@
 namespace Lc\Fishery;
 
 use Lc\Fishery\Provider\ServiceProviderInterface;
-use Lc\Fishery\Console\Application;
 
 /**
  * Class Fishery

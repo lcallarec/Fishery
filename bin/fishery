@@ -1,8 +1,6 @@
 #!/usr/bin/php
 <?php
 
-use \Lc\Fishery\Command\Console;
-use \Lc\Fishery\Command\LoadCommand;
 use \Lc\Fishery\FisheryConfigurator;
 use \Lc\Fishery\Application\FisheryConsole;
 use \Lc\Fishery\Provider\ConsoleApplicationProvider;
@@ -11,9 +9,9 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $rootPath = getcwd();
 
-$Fishery = new FisheryConsole();
-$Fishery->register(new ConsoleApplicationProvider());
+$fishery = new FisheryConsole();
+$fishery->register(new ConsoleApplicationProvider());
 
-(new FisheryConfigurator($Fishery, $rootPath))->configure();
+(new FisheryConfigurator($fishery, $rootPath))->configure();
 
-$Fishery->run();
+$fishery->run();
