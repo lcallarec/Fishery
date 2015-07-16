@@ -44,9 +44,9 @@ class FisheryConfigurator
 
         $this->parameters = $this->getParameters($rootPath . DIRECTORY_SEPARATOR . 'config');
 
-        $this->locator = new FileLocator($this->parameters['parameters']['config.dir']);
+        $this->locator = new FileLocator($this->parameters['config.dir']);
 
-        $app['parameters'] = $this->parameters['parameters'];
+        $app['parameters'] = $this->parameters;
 
     }
 
@@ -55,8 +55,7 @@ class FisheryConfigurator
      */
     public function configure()
     {
-
-        $configPath = $this->parameters['parameters']['config.dir'];
+        $configPath = $this->parameters['config.dir'];
 
         $configResolver = new Resolver($this->parameters);
 
@@ -126,7 +125,7 @@ class FisheryConfigurator
             $_parameters .= $data;
         }
 
-        $merged = array_merge_recursive(['parameters' => $parameters], $parametersLoader->load($data));
+        $merged = array_merge_recursive(['parameters' => $parameters], $parametersLoader->load($_parameters));
 
         $reference = $merged['parameters'];
 
@@ -136,7 +135,7 @@ class FisheryConfigurator
            }
         });
 
-        return $merged;
+        return $merged['parameters'];
     }
 
     /**

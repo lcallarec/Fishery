@@ -45,7 +45,9 @@ class Resolver
     public function resolve(ConfigurationLoader $loader)
     {
         $configStack = [];
+
         foreach ($this->configStack as $config) {
+
             if (!empty($this->parameters)) {
                 foreach ($this->parameters as $parameter => $value) {
                     $configStack[] = str_replace(
