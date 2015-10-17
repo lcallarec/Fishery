@@ -23,6 +23,8 @@ class Table
     private $columns;
     /** @var string */
     private $ddl;
+    /** @var array */
+    private $identifiers;
 
     /**
      * @param string $schemaName
@@ -37,6 +39,7 @@ class Table
         $this->schemaAlias = $schemaAlias ;
         $this->name        = $name;
         $this->columns     = $columns;
+        $this->identifiers = $identifiers;
         $this->ddl         = str_replace('%schema%', $schemaName, $ddl);
     }
 

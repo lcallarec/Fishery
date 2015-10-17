@@ -4,15 +4,15 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 $rootPath = '../';
 
-$Fishery = new \Lc\Fishery\Application\FisheryHttp();
-$Fishery['debug'] = true;
+$fishery = new \Lc\Fishery\Application\FisheryHttp();
+$fishery['debug'] = true;
 
-(new \Lc\Fishery\FisheryConfigurator($Fishery, $rootPath))->configure();
+(new \Lc\Fishery\FisheryConfigurator($fishery, $rootPath))->configure();
 
+$fishery->get('/{dataProvider}/{schemaAlias}/{entity}/{id}', function(\Symfony\Component\HttpFoundation\Request $request) use($fishery) {
 
-$Fishery->get('/{dataProvider}/{schemaAlias}/{entity}/{id}', function(\Symfony\Component\HttpFoundation\Request $request) use($Fishery) {
-
-    return (new \Lc\Fishery\Http\ApiResponse($request, $Fishery['entity.manager']))->create();
+    return (new \Lc\Fishery\Http\ApiResponse($request, $fishery['entity.manager']))->create();
 });
 
-$Fishery->run();
+$fishery['schema.manager'];
+$fishery->run();

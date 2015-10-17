@@ -28,11 +28,11 @@ class SqlStorage implements PersistentStorageInterface
     public function persist($in, array $values)
     {
         $this->conn->insert($in, $values);
-
     }
 
     public function execute($definition)
     {
-       return $this->conn->exec($definition);
+       return $this->conn->executeQuery($definition);
     }
+
 }

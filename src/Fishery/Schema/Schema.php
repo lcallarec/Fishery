@@ -28,18 +28,20 @@ class Schema
      */
     public function __construct(EntityManager $entityManager, $config, Finder $finder, $rootPath)
     {
-
-
         $this->entityManager = $entityManager;
+        $this->entityManager->setSchema($this);
 
-        $this->finder   = $finder;
 
-        $this->tables = new Tables();
+        $this->finder  = $finder;
+
+        $this->tables  = new Tables();
 
         $this->schemas = [];
 
         $this->prepare($config, $rootPath);
     }
+
+
 
     /**
      * Get the tables
@@ -115,7 +117,7 @@ class Schema
 
             $this->tables->set(
                 '@' . $schemaAlias . '.' . $tableName,
-                new Table($schemaName, $schemaAlias, $tableName, $config[$schemaAlias][$tableName], 'id', $table->getContents())
+                new Table($schemaName, $schemaAlias, $tableName, $config[$schemaAlias][$tableName], ['id'], $table->getContents())
             );
         }
     }

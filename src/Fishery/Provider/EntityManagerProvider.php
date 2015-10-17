@@ -4,6 +4,7 @@ namespace Lc\Fishery\Provider;
 
 use Lc\Fishery\FisheryContainerInterface;
 use Lc\Fishery\Schema\EntityManager;
+use Lc\Fishery\Schema\Schema;
 use Lc\Fishery\Storage\Persistent\PersistentStorageInterface;
 use Silex\Application;
 
